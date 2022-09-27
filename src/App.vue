@@ -1,47 +1,34 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import navbarVue from "./components/navbar.vue";
+import footerVue from "./components/footer.vue";
+import postsVue from "./components/posts.vue";
+import { ref } from "vue";
+const isTrue = ref(true);
+const changeColor = () => {
+  return (document.querySelector("#patata").style.backgroundColor = "red");
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <!-- iteration 1 -->
+  <navbarVue />
+  <br />
+  <footerVue />
+  <br />
+  <postsVue />
+  <br />
+  <!-- iteration 2 -->
+  <div>
+    {{ 2 + 2 }}
+  </div>
+  <!-- Iteration 3 -->
+  <p v-if="isTrue">show me please</p>
+  <br />
+  <!-- Iteration 5 -->
+  <div>
+    <h1 id="patata">we are the champion</h1>
+    <button v-on:click="changeColor">click to change the color</button>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
